@@ -1,5 +1,5 @@
 # PTTPoliceRadio
-Toggles the police radio animation when the PTT key for Teamspeak or Discord is pushed.
+This script toggles the police radio animation when the PTT key for Teamspeak or Discord is pushed.
 <br><br>
 *Teamspeak or Discord must have their PTT button mapped to LEFT ALT or you can modify the script to change the key.*
 <br>

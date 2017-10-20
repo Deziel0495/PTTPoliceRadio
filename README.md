@@ -1,9 +1,11 @@
 # PTTPoliceRadio
-This script toggles the police radio animation when the PTT key for Teamspeak or Discord is pushed.
+This script toggles the police radio animation when the PTT key(s) for Teamspeak or Discord are pushed.
 <br><br>
-*Teamspeak or Discord must have their PTT button mapped to LEFT ALT or you can modify the script to change the key.*
+*Teamspeak or Discord must have 2 PTT buttons mapped to LEFT ALT and LEFT CTRL or you can modify the script to change the keys.*
 <br>
-# Known Issues
-Player cannot aim a weapon when this animation is active. Unfortunately, there is no workaround for this.
+# Controls
+LEFT ALT - Talk on radio. (Player cannot aim a weapon when this animation is active.)
+<br>
+LEFT CTRL - Talk on radio with weapon aimed. (Player must switch between AIM (LEFT MOUSE) and LEFT CTRL or the animation will not play properly.)
 # Extras
 Included are the 2 sound effects I use on Teamspeak for my mic clicks.

@@ -1,3 +1,4 @@
+
 function loadAnimDict( dict )
     while ( not HasAnimDictLoaded( dict ) ) do
         RequestAnimDict( dict )
@@ -21,16 +22,18 @@ Citizen.CreateThread( function()
                         Citizen.Wait( 100 )
                     end 
                         if ( IsDisabledControlJustReleased( 0, 19 ) ) then
+						ClearPedSecondaryTask(ped)
                         SetEnableHandcuffs(ped, false)
-                        ClearPedSecondaryTask(ped)
                     else
                         if ( IsDisabledControlJustPressed( 0, 19 ) ) then
-                        DisableControlAction(1, 140, true)
-                        DisableControlAction(1, 141, true)
-                        DisableControlAction(1, 142, true)
-						SetEnableHandcuffs(ped, true)
                         TaskPlayAnim(ped, "random@arrests", "generic_radio_enter", 8.0, 2.0, -1, 50, 2.0, 0, 0, 0 )
+						SetEnableHandcuffs(ped, true)
                     end 
+					   if IsEntityPlayingAnim(GetPlayerPed(PlayerId()), "random@arrests", "generic_radio_enter", 3) then
+					   DisableControlAction(1, 140, true)
+					   DisableControlAction(1, 141, true)
+					   DisableControlAction(1, 142, true)
+					end
                 end
             end 
         end 

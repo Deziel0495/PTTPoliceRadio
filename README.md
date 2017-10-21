@@ -11,5 +11,7 @@ LEFT ALT - Talk on radio.
 LEFT CTRL - Talk on radio while keeping weapon aimed.
 <br>
 *Player must release the aim button (RIGHT MOUSE) when activiating LEFT CTRL (and vice versa). Otherwise the animation will not play properly.*
+<br><br>
+Z - Hold gun holster.
 # Extras
 Included are the 2 sound effects I use on Teamspeak for my mic clicks.

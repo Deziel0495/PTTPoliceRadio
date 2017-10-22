@@ -37,7 +37,7 @@ Citizen.CreateThread( function()
                         Citizen.Wait( 100 )
                     end 
                         if ( IsDisabledControlJustReleased( 0, 19 ) ) then
-                        ClearPedSecondaryTask(ped)
+                        ClearPedTasks(ped)
                         SetEnableHandcuffs(ped, false)
                     else
                         if ( IsDisabledControlJustPressed( 0, 19 ) ) and checkskin() then
@@ -78,7 +78,7 @@ Citizen.CreateThread( function()
                         Citizen.Wait( 100 )
                     end 
                         if ( IsDisabledControlJustReleased( 0, 36 ) ) then
-                        ClearPedSecondaryTask(ped)
+                         ClearPedTasks(ped)
                     else
                         if ( IsDisabledControlJustPressed( 0, 36 ) ) then
                         TaskPlayAnim(ped, "random@arrests", "radio_chatter", 8.0, 2.0, -1, 50, 2.0, 0, 0, 0 )
@@ -133,7 +133,7 @@ Citizen.CreateThread( function()
                         Citizen.Wait( 100 )
                     end 
                         if ( IsDisabledControlJustReleased( 0, 20 ) ) then
-						ClearPedSecondaryTask(ped)
+						ClearPedTasks(ped)
 						SetEnableHandcuffs(ped, false)
 						SetCurrentPedWeapon(ped, GetHashKey("WEAPON_UNARMED"), true)
                     else

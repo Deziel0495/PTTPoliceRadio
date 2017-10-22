@@ -1,10 +1,3 @@
-function loadAnimDict( dict )
-    while ( not HasAnimDictLoaded( dict ) ) do
-        RequestAnimDict( dict )
-        Citizen.Wait( 0 )
-    end
-end
-
 skins = {
 	-- Police --
 	GetHashKey("s_m_y_cop_01"),
@@ -21,6 +14,8 @@ skins = {
 	GetHashKey("s_f_y_ranger_01"),
 }
 
+--RADIO--
+
 Citizen.CreateThread( function()
     while true do 
         Citizen.Wait( 0 )
@@ -28,16 +23,16 @@ Citizen.CreateThread( function()
         local ped = GetPlayerPed( -1 )
 
         if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(PlayerPedId(), true) and checkskin() then 
-            DisableControlAction( 0, 19, true ) -- INPUT_CHARACTER_WHEEL (LEFTALT)  
-
-            if ( not IsPauseMenuActive() ) then 
+            DisableControlAction( 0, 19, true ) -- INPUT_CHARACTER_WHEEL (LEFTALT)   
+			
+			if ( not IsPauseMenuActive() ) then 
                     loadAnimDict( "random@arrests" )
 
                     while ( not HasAnimDictLoaded( "random@arrests" ) ) do 
                         Citizen.Wait( 100 )
                     end 
                         if ( IsDisabledControlJustReleased( 0, 19 ) ) then
-                        ClearPedTasks(ped)
+                        ClearPedSecondaryTask(ped)
                         SetEnableHandcuffs(ped, false)
                     else
                         if ( IsDisabledControlJustPressed( 0, 19 ) ) and checkskin() then
@@ -55,12 +50,7 @@ Citizen.CreateThread( function()
     end
 end )
 
-function loadAnimDict( dict )
-    while ( not HasAnimDictLoaded( dict ) ) do
-        RequestAnimDict( dict )
-        Citizen.Wait( 0 )
-    end
-end
+--RADIO W/ GUN AIMED--
 
 Citizen.CreateThread( function()
     while true do 
@@ -71,14 +61,14 @@ Citizen.CreateThread( function()
         if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(PlayerPedId(), true) and checkskin() then 
             DisableControlAction( 0, 36, true ) -- INPUT_DUCK (LEFTCTRL)  
 
-            if ( not IsPauseMenuActive() ) then 
+			if ( not IsPauseMenuActive() ) then 
                     loadAnimDict( "random@arrests" )
 
                     while ( not HasAnimDictLoaded( "random@arrests" ) ) do 
                         Citizen.Wait( 100 )
                     end 
                         if ( IsDisabledControlJustReleased( 0, 36 ) ) then
-                         ClearPedTasks(ped)
+                        ClearPedSecondaryTask(ped)
                     else
                         if ( IsDisabledControlJustPressed( 0, 36 ) ) then
                         TaskPlayAnim(ped, "random@arrests", "radio_chatter", 8.0, 2.0, -1, 50, 2.0, 0, 0, 0 )
@@ -94,28 +84,7 @@ Citizen.CreateThread( function()
     end
 end )
 
-function loadAnimDict( dict )
-    while ( not HasAnimDictLoaded( dict ) ) do
-        RequestAnimDict( dict )
-        Citizen.Wait( 0 )
-    end
-end
-
-skins = {
-	-- Police --
-	GetHashKey("s_m_y_cop_01"),
-	GetHashKey("s_f_y_cop_01"),
-	-- Highway --
-	GetHashKey("s_m_y_hwaycop_01"),
-	-- Sheriff --
-	GetHashKey("s_m_y_sheriff_01"),
-	GetHashKey("s_f_y_sheriff_01"),
-	-- SECURITY --
-	GetHashKey("s_m_m_security_01"),
-	-- Ranger --
-	GetHashKey("s_m_y_ranger_01"),
-	GetHashKey("s_f_y_ranger_01"),
-}
+--GUN HOLSTER--
 
 Citizen.CreateThread( function()
     while true do 
@@ -126,14 +95,14 @@ Citizen.CreateThread( function()
         if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(PlayerPedId(), true) and checkskin() then 
             DisableControlAction( 0, 20, true ) -- INPUT_MULTIPLAYER_INFO (Z)	
 
-            if ( not IsPauseMenuActive() ) then 
+			 if ( not IsPauseMenuActive() ) then 
                     loadAnimDict( "reaction@intimidation@cop@unarmed" )
 
                     while ( not HasAnimDictLoaded( "reaction@intimidation@cop@unarmed" ) ) do 
                         Citizen.Wait( 100 )
                     end 
                         if ( IsDisabledControlJustReleased( 0, 20 ) ) then
-						ClearPedTasks(ped)
+						ClearPedSecondaryTask(ped)
 						SetEnableHandcuffs(ped, false)
 						SetCurrentPedWeapon(ped, GetHashKey("WEAPON_UNARMED"), true)
                     else
@@ -160,4 +129,11 @@ function checkskin()
         end
     end
     return false
+end
+
+function loadAnimDict( dict )
+    while ( not HasAnimDictLoaded( dict ) ) do
+        RequestAnimDict( dict )
+        Citizen.Wait( 0 )
+    end
 end

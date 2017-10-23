@@ -22,20 +22,19 @@ Citizen.CreateThread( function()
 
         local ped = GetPlayerPed( -1 )
 
-        if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(PlayerPedId(), true) and checkskin() then 
-            DisableControlAction( 0, 19, true ) -- INPUT_CHARACTER_WHEEL (LEFTALT)   
-			
+        if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(PlayerPedId(), true) and checkskin() then
+		
 			if ( not IsPauseMenuActive() ) then 
                     loadAnimDict( "random@arrests" )
 
                     while ( not HasAnimDictLoaded( "random@arrests" ) ) do 
                         Citizen.Wait( 100 )
                     end 
-                        if ( IsDisabledControlJustReleased( 0, 19 ) ) then
+                        if ( IsControlJustReleased( 0, 19 ) ) then
                         ClearPedTasks(ped)
                         SetEnableHandcuffs(ped, false)
                     else
-                        if ( IsDisabledControlJustPressed( 0, 19 ) ) and checkskin() then
+                        if ( IsControlJustPressed( 0, 19 ) ) and checkskin() then
                         TaskPlayAnim(ped, "random@arrests", "generic_radio_enter", 8.0, 2.0, -1, 50, 2.0, 0, 0, 0 )
                         SetEnableHandcuffs(ped, true)
                     end 
@@ -59,7 +58,7 @@ Citizen.CreateThread( function()
         local ped = GetPlayerPed( -1 )
 
         if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(PlayerPedId(), true) and checkskin() then 
-            DisableControlAction( 0, 36, true ) -- INPUT_DUCK (LEFTCTRL)  
+            DisableControlAction( 0, 36, true ) -- INPUT_DUCK (LEFTCTRL)
 
 			if ( not IsPauseMenuActive() ) then 
                     loadAnimDict( "random@arrests" )
@@ -93,9 +92,9 @@ Citizen.CreateThread( function()
         local ped = GetPlayerPed( -1 )
 
         if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(PlayerPedId(), true) and checkskin() then 
-            DisableControlAction( 0, 20, true ) -- INPUT_MULTIPLAYER_INFO (Z)	
+            DisableControlAction( 0, 20, true ) -- INPUT_MULTIPLAYER_INFO (Z)
 
-			 if ( not IsPauseMenuActive() ) then 
+			if ( not IsPauseMenuActive() ) then 
                     loadAnimDict( "reaction@intimidation@cop@unarmed" )
 
                     while ( not HasAnimDictLoaded( "reaction@intimidation@cop@unarmed" ) ) do 

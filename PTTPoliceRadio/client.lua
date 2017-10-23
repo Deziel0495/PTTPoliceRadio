@@ -1,3 +1,5 @@
+-- RESTRICTED PEDS --
+
 skins = {
 	-- Police --
 	GetHashKey("s_m_y_cop_01"),
@@ -14,7 +16,7 @@ skins = {
 	GetHashKey("s_f_y_ranger_01"),
 }
 
--- RADIO --
+-- RADIO ANIMATION --
 
 Citizen.CreateThread( function()
     while true do 
@@ -49,7 +51,7 @@ Citizen.CreateThread( function()
     end
 end )
 
--- RADIO W/ GUN AIMED --
+-- RADIO W/ GUN AIMED ANIMATION --
 
 Citizen.CreateThread( function()
     while true do 
@@ -83,7 +85,7 @@ Citizen.CreateThread( function()
     end
 end )
 
--- GUN HOLSTER --
+-- GUN HOLSTER ANIMATION --
 
 Citizen.CreateThread( function()
     while true do 
@@ -114,7 +116,7 @@ Citizen.CreateThread( function()
                        DisableControlAction(1, 140, true)
                        DisableControlAction(1, 141, true)
                        DisableControlAction(1, 142, true)
-					end	
+			end	
                 end
             end 
         end 

@@ -22,9 +22,9 @@ Citizen.CreateThread( function()
     while true do 
         Citizen.Wait( 0 )
 
-        local ped = PlayerPedId()
+        local ped = GetPlayerPed( -1 )
 
-        if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(ped, true) and checkskin() then
+        if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(PlayerPedId(), true) and checkskin() then
 		
 			if ( not IsPauseMenuActive() ) then 
                     loadAnimDict( "random@arrests" )
@@ -40,7 +40,7 @@ Citizen.CreateThread( function()
                         TaskPlayAnim(ped, "random@arrests", "generic_radio_enter", 8.0, 2.0, -1, 50, 2.0, 0, 0, 0 )
                         SetEnableHandcuffs(ped, true)
                     end 
-                       if IsEntityPlayingAnim(ped, "random@arrests", "generic_radio_enter", 3) then
+                       if IsEntityPlayingAnim(GetPlayerPed(PlayerId()), "random@arrests", "generic_radio_enter", 3) then
                        DisableControlAction(1, 140, true)
                        DisableControlAction(1, 141, true)
                        DisableControlAction(1, 142, true)
@@ -57,9 +57,9 @@ Citizen.CreateThread( function()
     while true do 
         Citizen.Wait( 0 )
 
-        local ped = PlayerPedId()
+        local ped = GetPlayerPed( -1 )
 
-        if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(ped, true) and checkskin() then 
+        if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(PlayerPedId(), true) and checkskin() then 
             DisableControlAction( 0, 36, true ) -- INPUT_DUCK (LEFTCTRL)
 
 			if ( not IsPauseMenuActive() ) then 
@@ -74,7 +74,7 @@ Citizen.CreateThread( function()
                         if ( IsDisabledControlJustPressed( 0, 36 ) ) then
                         TaskPlayAnim(ped, "random@arrests", "radio_chatter", 8.0, 2.0, -1, 50, 2.0, 0, 0, 0 )
                     end 
-                       if IsEntityPlayingAnim(ped, "random@arrests", "radio_chatter", 3) then
+                       if IsEntityPlayingAnim(GetPlayerPed(PlayerId()), "random@arrests", "radio_chatter", 3) then
                        DisableControlAction(1, 140, true)
                        DisableControlAction(1, 141, true)
                        DisableControlAction(1, 142, true)
@@ -91,9 +91,9 @@ Citizen.CreateThread( function()
     while true do 
         Citizen.Wait( 0 )
 
-        local ped = PlayerPedId()
+        local ped = GetPlayerPed( -1 )
 
-        if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(ped, true) and checkskin() then 
+        if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(PlayerPedId(), true) and checkskin() then 
             DisableControlAction( 0, 20, true ) -- INPUT_MULTIPLAYER_INFO (Z)
 
 			if ( not IsPauseMenuActive() ) then 
@@ -112,7 +112,7 @@ Citizen.CreateThread( function()
 						SetCurrentPedWeapon(ped, GetHashKey("WEAPON_UNARMED"), true) 
 						TaskPlayAnim(ped, "reaction@intimidation@cop@unarmed", "intro", 8.0, 2.0, -1, 50, 2.0, 0, 0, 0 )
                     end
-		       if IsEntityPlayingAnim(ped, "reaction@intimidation@cop@unarmed", "intro", 3) then 
+						if IsEntityPlayingAnim(GetPlayerPed(PlayerId()), "reaction@intimidation@cop@unarmed", "intro", 3) then 
                        DisableControlAction(1, 140, true)
                        DisableControlAction(1, 141, true)
                        DisableControlAction(1, 142, true)
@@ -125,7 +125,7 @@ end )
 
 function checkskin()
     for i = 1, #skins do
-        if skins[i] == GetEntityModel(ped) then
+        if skins[i] == GetEntityModel(PlayerPedId()) then
             return true
         end
     end

@@ -17,3 +17,5 @@ LEFT CTRL - Talk on radio while keeping weapon aimed.
 Z - Hold gun holster.
 # Extras
 Included are the 2 mic click sound effects I use on Teamspeak.
+<br>
+Join my Discord: http://discord.me/deziel0495

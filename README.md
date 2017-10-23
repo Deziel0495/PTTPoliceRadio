@@ -1,7 +1,7 @@
 # PTTPoliceRadio
-This script toggles the police radio animation when the PTT key for Teamspeak is pushed and is restricted to LEO's only.
+This script toggles the police radio animation when the PTT key for your voice application is pushed and is restricted to LEO's only.
 <br><br>
-*Teamspeak must have a PTT button mapped to LEFT ALT or you can modify the script to change the key.*
+*Your voice application must have a PTT button mapped to LEFT ALT or you can modify the script to change the key.*
 <br>
 # Controls
 **LEFT ALT - Talk on radio.**

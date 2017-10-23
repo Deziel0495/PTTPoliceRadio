@@ -1,3 +1,5 @@
+-- Created by Deziel0495 and modified by IllusiveTea --
+
 -- RESTRICTED PEDS --
 
 skins = {
@@ -16,68 +18,40 @@ skins = {
 	GetHashKey("s_f_y_ranger_01"),
 }
 
--- RADIO ANIMATION --
+-- RADIO ANIMATIONS --
 
-Citizen.CreateThread( function()
-    while true do 
+Citizen.CreateThread(function()
+    while true do
         Citizen.Wait( 0 )
 
-        local ped = GetPlayerPed( -1 )
+        local ped = PlayerPedId() -- Deziel change this and you're dead to me ~Tea
 
         if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(PlayerPedId(), true) and checkskin() then
 		
 			if ( not IsPauseMenuActive() ) then 
-                    loadAnimDict( "random@arrests" )
+                loadAnimDict( "random@arrests" )
 
-                    while ( not HasAnimDictLoaded( "random@arrests" ) ) do 
+                while ( not HasAnimDictLoaded( "random@arrests" ) ) do 
                         Citizen.Wait( 100 )
-                    end 
-                        if ( IsControlJustReleased( 0, 19 ) ) then
-                        ClearPedTasks(ped)
-                        SetEnableHandcuffs(ped, false)
-                    else
-                        if ( IsControlJustPressed( 0, 19 ) ) and checkskin() then
+                end 
+                if ( IsControlJustReleased( 0, 19 ) ) then
+                    ClearPedTasks(ped)
+                    SetEnableHandcuffs(ped, false)
+                else
+                    if ( IsControlJustPressed( 0, 19 ) ) and checkskin() and not IsPlayerFreeAiming(PlayerId()) then
                         TaskPlayAnim(ped, "random@arrests", "generic_radio_enter", 8.0, 2.0, -1, 50, 2.0, 0, 0, 0 )
                         SetEnableHandcuffs(ped, true)
-                    end 
-                       if IsEntityPlayingAnim(GetPlayerPed(PlayerId()), "random@arrests", "generic_radio_enter", 3) then
-                       DisableControlAction(1, 140, true)
-                       DisableControlAction(1, 141, true)
-                       DisableControlAction(1, 142, true)
-                    end
-                end
-            end 
-        end 
-    end
-end )
-
--- RADIO W/ GUN AIMED ANIMATION --
-
-Citizen.CreateThread( function()
-    while true do 
-        Citizen.Wait( 0 )
-
-        local ped = GetPlayerPed( -1 )
-
-        if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(PlayerPedId(), true) and checkskin() then 
-            DisableControlAction( 0, 36, true ) -- INPUT_DUCK (LEFTCTRL)
-
-			if ( not IsPauseMenuActive() ) then 
-                    loadAnimDict( "random@arrests" )
-
-                    while ( not HasAnimDictLoaded( "random@arrests" ) ) do 
-                        Citizen.Wait( 100 )
-                    end 
-                        if ( IsDisabledControlJustReleased( 0, 36 ) ) then
-                        ClearPedTasks(ped)
-                    else
-                        if ( IsDisabledControlJustPressed( 0, 36 ) ) then
+                    elseif ( IsControlJustPressed( 0, 19 ) ) and checkskin() and IsPlayerFreeAiming(PlayerId()) then
                         TaskPlayAnim(ped, "random@arrests", "radio_chatter", 8.0, 2.0, -1, 50, 2.0, 0, 0, 0 )
                     end 
-                       if IsEntityPlayingAnim(GetPlayerPed(PlayerId()), "random@arrests", "radio_chatter", 3) then
-                       DisableControlAction(1, 140, true)
-                       DisableControlAction(1, 141, true)
-                       DisableControlAction(1, 142, true)
+                    if IsEntityPlayingAnim(GetPlayerPed(PlayerId()), "random@arrests", "generic_radio_enter", 3) then
+                        DisableControlAction(1, 140, true)
+                        DisableControlAction(1, 141, true)
+                        DisableControlAction(1, 142, true)
+                    elseif IsEntityPlayingAnim(GetPlayerPed(PlayerId()), "random@arrests", "radio_chatter", 3) then
+                        DisableControlAction(1, 140, true)
+                        DisableControlAction(1, 141, true)
+                        DisableControlAction(1, 142, true)
                     end
                 end
             end 

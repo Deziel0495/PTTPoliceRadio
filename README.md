@@ -1,5 +1,5 @@
 # PTTPoliceRadio
-This script toggles the police radio animation when the `PTT key for your voice application is pushed` and is restricted to LEO's only.
+This script toggles the police radio animation when the `*PTT key for your voice application is pushed*` and is restricted to LEO's only.
 <br><br>
 A very special thank you to IllusiveTea for assisting with this script.
 <br><br>

@@ -16,7 +16,6 @@ Included are the 2 mic click sound effects I use on Teamspeak.
 Join my Discord: http://discord.me/deziel0495
 # NOTICE
 This script is licensed under ["No License"](https://choosealicense.com/no-license/).
-
 ### You are allowed to:
 Download, Use and Edit the Script.
 <br>

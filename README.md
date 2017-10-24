@@ -5,7 +5,7 @@ A very special thank you to IllusiveTea for assisting with this script.
 ## Controls
 ###### _Restricted to LEO's only or other peds specified._
 #### **LEFT ALT - Talk on radio.**
-*When aiming a weapon, player must release the aim button (RIGHT MOUSE) when activiating LEFT ALT and vice versa. Otherwise the animation will not play properly.*
+*When aiming a weapon, player must release their INPUT_AIM button when activiating LEFT ALT and vice versa. Otherwise the animation will not play properly.*
 #### **Z - Hold gun holster.**
 #### **6 - Unholster pistol.**
 #### **1 - Holster pistol.**

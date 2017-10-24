@@ -11,6 +11,10 @@ A very special thank you to IllusiveTea for assisting with this script.
 *When aiming a weapon, player must release the aim button (RIGHT MOUSE) when activiating LEFT ALT (and vice versa). Otherwise the animation will not play properly.*
 <br><br>
 **Z - Hold gun holster.**
+
+# Planned Features
+The ability to show the pistol out of the holster if the player is holding a pistol and vice versa.
+
 # Extras
 Included are the 2 mic click sound effects I use on Teamspeak.
 <br>

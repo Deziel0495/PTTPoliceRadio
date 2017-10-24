@@ -12,8 +12,6 @@ A very special thank you to IllusiveTea for assisting with this script.
 _When INPUT_SELECT_WEAPON_HANDGUN (6) is pressed the player will equip a pistol, removing it from their holster. When INPUT_SELECT_WEAPON_UNARMED (1) is pressed the player will return to being unarmed with the pistol back in its holster. **Using the weapon wheel has no effect.**_
 ## Extras
 Included are the 2 mic click sound effects I use on Teamspeak.
-<br>
-Join my Discord: http://discord.me/deziel0495
 # NOTICE
 This script is licensed under ["No License"](https://choosealicense.com/no-license/).
 ### You are allowed to:
@@ -21,3 +19,5 @@ Download, Use and Edit the Script.
 <br>
 ### You are not allowed to:
 Copy, re-release, re-distribute it without my written permission.
+<br><br>
+###### Join my Discord: http://discord.me/deziel0495

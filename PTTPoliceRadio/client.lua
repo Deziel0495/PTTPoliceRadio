@@ -11,7 +11,7 @@ skins = {
 	-- Sheriff --
 	GetHashKey("s_m_y_sheriff_01"),
 	GetHashKey("s_f_y_sheriff_01"),
-	-- SECURITY --
+	-- Security --
 	GetHashKey("s_m_m_security_01"),
 	-- Ranger --
 	GetHashKey("s_m_y_ranger_01"),
@@ -24,7 +24,7 @@ Citizen.CreateThread(function()
     while true do
         Citizen.Wait( 0 )
 
-        local ped = PlayerPedId() -- Deziel change this and you're dead to me ~Tea
+        local ped = PlayerPedId()
 
         if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(PlayerPedId(), true) and checkskin() then
 		
@@ -39,10 +39,10 @@ Citizen.CreateThread(function()
                     SetEnableHandcuffs(ped, false)
                 else
                     if ( IsControlJustPressed( 0, 19 ) ) and checkskin() and not IsPlayerFreeAiming(PlayerId()) then -- INPUT_CHARACTER_WHEEL (LEFT ALT)
-                        TaskPlayAnim(ped, "random@arrests", "generic_radio_enter", 8.0, 2.0, -1, 50, 2.0, 0, 0, 0 )
+						TaskPlayAnim(ped, "random@arrests", "generic_radio_enter", 8.0, 2.0, -1, 50, 2.0, 0, 0, 0 )
                         SetEnableHandcuffs(ped, true)
                     elseif ( IsControlJustPressed( 0, 19 ) ) and checkskin() and IsPlayerFreeAiming(PlayerId()) then -- INPUT_CHARACTER_WHEEL (LEFT ALT)
-                        TaskPlayAnim(ped, "random@arrests", "radio_chatter", 8.0, 2.0, -1, 50, 2.0, 0, 0, 0 )
+						TaskPlayAnim(ped, "random@arrests", "radio_chatter", 8.0, 2.0, -1, 50, 2.0, 0, 0, 0 )
                     end 
                     if IsEntityPlayingAnim(GetPlayerPed(PlayerId()), "random@arrests", "generic_radio_enter", 3) then
                         DisableControlAction(1, 140, true)
@@ -65,7 +65,7 @@ Citizen.CreateThread( function()
     while true do 
         Citizen.Wait( 0 )
 
-        local ped = GetPlayerPed( -1 )
+        local ped = PlayerPedId()
 
         if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(PlayerPedId(), true) and checkskin() then 
             DisableControlAction( 0, 20, true ) -- INPUT_MULTIPLAYER_INFO (Z)
@@ -90,7 +90,7 @@ Citizen.CreateThread( function()
                        DisableControlAction(1, 140, true)
                        DisableControlAction(1, 141, true)
                        DisableControlAction(1, 142, true)
-			end	
+					end	
                 end
             end 
         end 

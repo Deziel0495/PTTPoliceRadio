@@ -1,7 +1,7 @@
 -- Created by Deziel0495 and modified by IllusiveTea --
 
 -- RESTRICTED PEDS --
-
+-- I've only listed peds that have a remote speaker mic, but any ped listed here will do the animations.
 skins = {
 	-- Police --
 	GetHashKey("s_m_y_cop_01"),

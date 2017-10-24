@@ -19,6 +19,6 @@ This script is licensed under ["No License"](https://choosealicense.com/no-licen
 
 ### You are allowed to:
 Download, Use and Edit the Script.
-<br><br>
+<br>
 ### You are not allowed to:
 Copy, re-release, re-distribute it without my written permission.

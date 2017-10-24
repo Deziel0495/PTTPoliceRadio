@@ -1,7 +1,13 @@
--- Created by Deziel0495 and modified by IllusiveTea --
+-- Created by Deziel0495 and IllusiveTea --
+
+-- NOTICE
+-- This script is licensed under "No License". https://choosealicense.com/no-license/
+-- You are allowed to: Download, Use and Edit the Script. 
+-- You are not allowed to: Copy, re-release, re-distribute it without our written permission.
 
 -- RESTRICTED PEDS --
 -- I've only listed peds that have a remote speaker mic, but any ped listed here will do the animations.
+
 skins = {
 	-- Police --
 	GetHashKey("s_m_y_cop_01"),
@@ -68,7 +74,7 @@ Citizen.CreateThread( function()
         local ped = PlayerPedId()
 
         if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(PlayerPedId(), true) and checkskin() then 
-            DisableControlAction( 0, 20, true ) -- INPUT_MULTIPLAYER_INFO (Z)
+			DisableControlAction( 0, 20, true ) -- INPUT_MULTIPLAYER_INFO (Z)
 
 			if ( not IsPauseMenuActive() ) then 
                     loadAnimDict( "reaction@intimidation@cop@unarmed" )
@@ -97,7 +103,7 @@ Citizen.CreateThread( function()
     end
 end )
 
--- REMOVE PISTOL FROM HOLSTER --
+-- ADD/REMOVE HANDGUN FROM HOLSTER --
  
  Citizen.CreateThread(function()
         while true do
@@ -105,14 +111,15 @@ end )
 			
 			local ped = PlayerPedId()
 			
-        if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(PlayerPedId(), true) and checkskin() then 
+        if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(PlayerPedId(), true) and checkskin() then
             
 			if IsControlJustPressed(0, 159) and checkskin() then -- INPUT_SELECT_WEAPON_HANDGUN (6)
                     SetPedComponentVariation(ped, 9, 0, 0, 0)
-					SetCurrentPedWeapon(ped, GetHashKey("WEAPON_PISTOL"), true)
+					ShowNotification("~h~~r~Weapon Drawn")
                 else
 					if IsControlJustPressed(0, 157) then -- INPUT_SELECT_WEAPON_UNARMED (1)
 					SetPedComponentVariation(ped, 9, 1, 0, 0)
+					ShowNotification("~h~~g~Weapon Holstered")
                 end
             end
         end
@@ -135,4 +142,10 @@ function loadAnimDict( dict )
         RequestAnimDict( dict )
         Citizen.Wait( 0 )
     end
+end
+
+function ShowNotification(text)
+	SetNotificationTextEntry("STRING")
+	AddTextComponentString(text)
+	DrawNotification(false, false)
 end

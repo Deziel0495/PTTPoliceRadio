@@ -1,9 +1,9 @@
 # PTTPoliceRadio
-This script toggles the police radio animation when the PTT key for your voice application is pushed and is restricted to LEO's only.
-<br><br>
-A very special thank you to IllusiveTea for assisting with this script.
+This script toggles the police radio animation when the PTT key for your voice application is pushed.
 ###### _Your voice application must have a PTT button mapped to LEFT ALT or you can modify the script to change the key._
+A very special thank you to IllusiveTea for assisting with this script.
 ## Controls
+###### _Restricted to LEO's only or other peds specified._
 #### **LEFT ALT - Talk on radio.**
 *When aiming a weapon, player must release the aim button (RIGHT MOUSE) when activiating LEFT ALT and vice versa. Otherwise the animation will not play properly.*
 #### **Z - Hold gun holster.**

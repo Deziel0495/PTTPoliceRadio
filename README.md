@@ -14,3 +14,11 @@ _When INPUT_SELECT_WEAPON_HANDGUN (6) is pressed the player will equip a pistol,
 Included are the 2 mic click sound effects I use on Teamspeak.
 <br>
 Join my Discord: http://discord.me/deziel0495
+# NOTICE
+This script is licensed under ["No License"](https://choosealicense.com/no-license/).
+
+### You are allowed to:
+Download, Use and Edit the Script.
+<br><br>
+### You are not allowed to:
+Copy, re-release, re-distribute it without my written permission.

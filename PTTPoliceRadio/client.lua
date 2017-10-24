@@ -97,6 +97,30 @@ Citizen.CreateThread( function()
     end
 end )
 
+-- REMOVE PISTOL FROM HOLSTER --
+ 
+ Citizen.CreateThread(function()
+        while true do
+            Citizen.Wait(0)
+			
+			local ped = PlayerPedId()
+			
+        if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(PlayerPedId(), true) and checkskin() then 
+            
+			if IsControlJustPressed(0, 159) and checkskin() then -- INPUT_SELECT_WEAPON_HANDGUN (6)
+                    SetPedComponentVariation(ped, 9, 0, 0, 0)
+					SetCurrentPedWeapon(ped, GetHashKey("WEAPON_PISTOL"), true)
+                else
+					if IsControlJustPressed(0, 157) then -- INPUT_SELECT_WEAPON_UNARMED (1)
+					SetPedComponentVariation(ped, 9, 1, 0, 0)
+                end
+            end
+        end
+    end
+end)
+
+-- DO NOT REMOVE THESE! --
+
 function checkskin()
     for i = 1, #skins do
         if skins[i] == GetEntityModel(PlayerPedId()) then

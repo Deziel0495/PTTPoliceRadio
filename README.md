@@ -4,9 +4,9 @@ This script toggles the police radio animation when the PTT key for your voice a
 A very special thank you to IllusiveTea for helping write this script.
 ## Controls
 ###### _Restricted to LEO's only or other peds specified._
-#### **LEFT ALT - Talk on radio animation.**
+#### **INPUT_CHARACTER_WHEEL - Talk on radio animation. (Left ALT by default)**
 *When aiming a weapon, player must release INPUT_AIM when activiating LEFT ALT and vice versa. Otherwise the animation will not play properly.*
-#### **Z - Hold weapon holster animation.**
+#### **INPUT_MULTIPLAYER_INFO - Hold weapon holster animation. (Z by default)**
 ## Extras
 When the Pistol is selected it will be removed from the weapon holster and vice versa.
 <br>

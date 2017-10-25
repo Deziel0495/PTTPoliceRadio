@@ -5,9 +5,9 @@ A very special thank you to IllusiveTea for helping write this script.
 ## Controls
 ###### _Restricted to LEO's only or other peds specified._
 #### **Talk on radio animation:**
-###### _Your voice application must have a PTT button mapped to this control.
+###### Your voice application must have a PTT button mapped to this control.
 `INPUT_CHARACTER_WHEEL (Left ALT by default)`
-<br>
+<br><br>
 When aiming a weapon, player must release aim when activiating Left ALT and vice versa. Otherwise the animation will not play properly.
 #### **Hold weapon holster animation:**
 `INPUT_MULTIPLAYER_INFO (Z by default)`

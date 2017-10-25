@@ -11,9 +11,9 @@ A very special thank you to IllusiveTea for helping write this script.
 When aiming a weapon, player must release aim when activiating Left ALT and vice versa. Otherwise the animation will not play properly.
 #### **Hold weapon holster animation:**
 `INPUT_MULTIPLAYER_INFO (Z by default)`
-## Extras
+#### **Holster/Unholster Pistol:**
 When the Pistol is selected it will be removed from the weapon holster and vice versa.
-<br>
+## Extras
 Included are the 2 mic click sound effects I use on Teamspeak.
 # NOTICE
 This script is licensed under ["No License"](https://choosealicense.com/no-license/).

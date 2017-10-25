@@ -65,7 +65,7 @@ Citizen.CreateThread(function()
     end
 end )
 
--- GUN HOLSTER ANIMATION --
+-- HOLD WEAPON HOLSTER ANIMATION --
 
 Citizen.CreateThread( function()
     while true do 
@@ -103,7 +103,7 @@ Citizen.CreateThread( function()
     end
 end )
 
--- ADD/REMOVE PISTOL FROM HOLSTER --
+-- HOLSTER/UNHOLSTER PISTOL --
  
  Citizen.CreateThread(function()
         while true do

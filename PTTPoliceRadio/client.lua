@@ -103,7 +103,7 @@ Citizen.CreateThread( function()
     end
 end )
 
--- ADD/REMOVE HANDGUN FROM HOLSTER --
+-- ADD/REMOVE PISTOL FROM HOLSTER --
  
  Citizen.CreateThread(function()
         while true do
@@ -113,13 +113,11 @@ end )
 			
         if ( DoesEntityExist( ped ) and not IsEntityDead( ped ) ) and not IsPedInAnyVehicle(PlayerPedId(), true) and checkskin() then
             
-			if IsControlJustPressed(0, 159) and checkskin() then -- INPUT_SELECT_WEAPON_HANDGUN (6)
+			if GetSelectedPedWeapon(ped) == GetHashKey("WEAPON_PISTOL") then
                     SetPedComponentVariation(ped, 9, 0, 0, 0)
-					ShowNotification("~h~~r~Weapon Drawn")
-                else
-					if IsControlJustPressed(0, 157) then -- INPUT_SELECT_WEAPON_UNARMED (1)
+				else
+				if GetSelectedPedWeapon(ped) ~= GetHashKey("WEAPON_PISTOL") then
 					SetPedComponentVariation(ped, 9, 1, 0, 0)
-					ShowNotification("~h~~g~Weapon Holstered")
                 end
             end
         end
@@ -142,10 +140,4 @@ function loadAnimDict( dict )
         RequestAnimDict( dict )
         Citizen.Wait( 0 )
     end
-end
-
-function ShowNotification(text)
-	SetNotificationTextEntry("STRING")
-	AddTextComponentString(text)
-	DrawNotification(false, false)
 end

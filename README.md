@@ -6,11 +6,11 @@ A very special thank you to IllusiveTea for helping write this script.
 ###### _Restricted to LEO's only or other peds specified._
 ###### _Your voice application must have a PTT button mapped to Left ALT. You can also change the keybindings in the game settings or modify the script to change the keys._
 #### **Talk on radio animation**
-INPUT_CHARACTER_WHEEL (lEFT ALT BY DEFAULT)
+INPUT_CHARACTER_WHEEL (Left ALT by default)
 <br>
 *When aiming a weapon, player must release aim when activiating Left ALT and vice versa. Otherwise the animation will not play properly.*
 #### **Hold weapon holster animation.**
-INPUT_MULTIPLAYER_INFO (Z BY DEFAULT)
+INPUT_MULTIPLAYER_INFO (Z by default)
 ## Extras
 When the Pistol is selected it will be removed from the weapon holster and vice versa.
 <br>

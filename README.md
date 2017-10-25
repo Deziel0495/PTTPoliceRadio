@@ -5,7 +5,7 @@ A very special thank you to IllusiveTea for helping write this script.
 ## Controls
 ###### _Restricted to LEO's only or other peds specified._
 #### **INPUT_CHARACTER_WHEEL - Talk on radio animation. (Left ALT by default)**
-*When aiming a weapon, player must release INPUT_AIM when activiating LEFT ALT and vice versa. Otherwise the animation will not play properly.*
+*When aiming a weapon, player must release INPUT_AIM when activiating INPUT_CHARACTER_WHEEL and vice versa. Otherwise the animation will not play properly.*
 #### **INPUT_MULTIPLAYER_INFO - Hold weapon holster animation. (Z by default)**
 ## Extras
 When the Pistol is selected it will be removed from the weapon holster and vice versa.

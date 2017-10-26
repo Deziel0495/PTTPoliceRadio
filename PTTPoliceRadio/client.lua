@@ -26,7 +26,7 @@ local skins = {
 	"s_f_y_ranger_01",
 }
 
--- Add weapon hashes here to be added for holster checks.
+-- Add/remove weapon hashes here to be added for holster checks.
 local weapons = {
 	"WEAPON_MARKSMANPISTOL",
 	"WEAPON_PISTOL",

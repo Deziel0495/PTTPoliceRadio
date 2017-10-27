@@ -105,10 +105,11 @@ end )
 		Citizen.Wait(0)
 		local ped = PlayerPedId()
 		if DoesEntityExist( ped ) and not IsEntityDead( ped ) and not IsPedInAnyVehicle(PlayerPedId(), true) and CheckSkin(ped) then
+			loadAnimDict( "rcmjosh4" )
 			loadAnimDict( "weapons@pistol@" )
 			if CheckWeapon(ped) then
 				if holstered then
-					TaskPlayAnim(ped, "weapons@pistol@", "holster_2_aim", 8.0, 2.0, -1, 48, 10, 0, 0, 0 )
+					TaskPlayAnim(ped, "rcmjosh4", "josh_leadout_cop2", 8.0, 2.0, -1, 48, 10, 0, 0, 0 )
 					Citizen.Wait(300)
 					holstered = false
 				end

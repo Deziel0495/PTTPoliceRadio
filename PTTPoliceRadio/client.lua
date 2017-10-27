@@ -19,8 +19,6 @@ local skins = {
 	-- Sheriff --
 	"s_m_y_sheriff_01",
 	"s_f_y_sheriff_01",
-	-- Security --
-	"s_m_m_security_01",
 	-- Ranger --
 	"s_m_y_ranger_01",
 	"s_f_y_ranger_01",

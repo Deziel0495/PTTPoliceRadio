@@ -23,5 +23,5 @@ files({
     -- Begin Sound Files Here...
     -- client/html/sounds/ ... .ogg
     'client/html/sounds/on.ogg',
-	'client/html/sounds/off.ogg'
+    'client/html/sounds/off.ogg'
 })

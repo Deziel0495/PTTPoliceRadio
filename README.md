@@ -14,7 +14,7 @@ When aiming a weapon, player must release aim when activiating Left ALT and vice
 #### **Holster/Unholster Pistol:**
 When the Pistol is selected it will be removed from the weapon holster and vice versa.
 ## Optional Extras
-Included are the 2 sound effects I use on Teamspeak for my mic clicks. This gives a nice “police radio” sound to go along with the animations. I also highly recommend the Radio FX plugin.
+Install the InteractSound folder into your resources along side PTTPoliceRadio and have mic clicks in-game! All credit for that resource goes to plunkettscott. https://github.com/plunkettscott/FiveM-Scripts
 # NOTICE
 This script is licensed under ["No License"](https://choosealicense.com/no-license/).
 ### You are allowed to:

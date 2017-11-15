@@ -101,14 +101,16 @@ end )
 			if CheckWeapon(ped) then
 				if holstered then
 					TaskPlayAnim(ped, "rcmjosh4", "josh_leadout_cop2", 8.0, 2.0, -1, 48, 10, 0, 0, 0 )
-					Citizen.Wait(300)
+					Citizen.Wait(600)
+					ClearPedTasks(ped)
 					holstered = false
 				end
 				SetPedComponentVariation(ped, 9, 0, 0, 0)
 			elseif not CheckWeapon(ped) then
 				if not holstered then
 					TaskPlayAnim(ped, "weapons@pistol@", "aim_2_holster", 8.0, 2.0, -1, 48, 10, 0, 0, 0 )
-					Citizen.Wait(300)
+					Citizen.Wait(500)
+					ClearPedTasks(ped)
 					holstered = true
 				end
 				SetPedComponentVariation(ped, 9, 1, 0, 0)

@@ -2,7 +2,7 @@
 
 -- NOTICE
 -- This script is licensed under "No License". https://choosealicense.com/no-license/
--- You are allowed to: Download, Use and Edit the Script. 
+-- You are allowed to: Download, Use and Edit the Script.
 -- You are not allowed to: Copy, re-release, re-distribute it without our written permission.
 
 --- DO NOT EDIT THIS
@@ -20,6 +20,18 @@ local skins = {
 	"s_f_y_ranger_01",
 }
 
+-- EUP Supported Peds
+local freemodeSkins = {
+	"mp_m_freemode_01",
+	"mp_f_freemode_01"
+}
+
+local eupHolsterDrawables = {
+  -- COMPONENT, HOLSTERED, UNHOLSTERED
+  {9, 0, 1}, {7, 8, 2}, {7, 1, 3}, {7, 6, 5}, {7, 110, 111}, {7, 119, 120}, {7, 42, 43}, {8, 16, 18}
+}
+
+
 -- Add/remove weapon hashes here to be added for holster checks.
 local weapons = {
 	"WEAPON_PISTOL",
@@ -33,7 +45,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait( 0 )
 		local ped = PlayerPedId()
 		if DoesEntityExist( ped ) and not IsEntityDead( ped ) and CheckSkin(ped) then
-			if not IsPauseMenuActive() then 
+			if not IsPauseMenuActive() then
 				loadAnimDict( "random@arrests" )
 				if IsControlJustReleased( 0, 19 ) then -- INPUT_CHARACTER_WHEEL (LEFT ALT)
 					TriggerServerEvent('InteractSound_SV:PlayOnSource', 'off', 0.1)
@@ -48,28 +60,28 @@ Citizen.CreateThread(function()
 						TriggerServerEvent('InteractSound_SV:PlayOnSource', 'on', 0.1)
 						TaskPlayAnim(ped, "random@arrests", "radio_chatter", 8.0, 2.0, -1, 50, 2.0, 0, 0, 0 )
 						SetEnableHandcuffs(ped, true)
-					end 
+					end
 					if IsEntityPlayingAnim(GetPlayerPed(PlayerId()), "random@arrests", "generic_radio_enter", 3) then
 						DisableActions(ped)
 					elseif IsEntityPlayingAnim(GetPlayerPed(PlayerId()), "random@arrests", "radio_chatter", 3) then
 						DisableActions(ped)
 					end
 				end
-			end 
-		end 
+			end
+		end
 	end
 end )
 
 -- HOLD WEAPON HOLSTER ANIMATION --
 
 Citizen.CreateThread( function()
-	while true do 
+	while true do
 		Citizen.Wait( 0 )
 		local ped = PlayerPedId()
-		if DoesEntityExist( ped ) and not IsEntityDead( ped ) and not IsPedInAnyVehicle(PlayerPedId(), true) and CheckSkin(ped) then 
+		if DoesEntityExist( ped ) and not IsEntityDead( ped ) and not IsPedInAnyVehicle(PlayerPedId(), true) and CheckSkin(ped) then
 			DisableControlAction( 0, 20, true ) -- INPUT_MULTIPLAYER_INFO (Z)
-			if not IsPauseMenuActive() then 
-				loadAnimDict( "reaction@intimidation@cop@unarmed" )		
+			if not IsPauseMenuActive() then
+				loadAnimDict( "reaction@intimidation@cop@unarmed" )
 				if IsDisabledControlJustReleased( 0, 20 ) then -- INPUT_MULTIPLAYER_INFO (Z)
 					ClearPedTasks(ped)
 					SetEnableHandcuffs(ped, false)
@@ -77,46 +89,62 @@ Citizen.CreateThread( function()
 				else
 					if IsDisabledControlJustPressed( 0, 20 ) and CheckSkin(ped) then -- INPUT_MULTIPLAYER_INFO (Z)
 						SetEnableHandcuffs(ped, true)
-						SetCurrentPedWeapon(ped, GetHashKey("WEAPON_UNARMED"), true) 
+						SetCurrentPedWeapon(ped, GetHashKey("WEAPON_UNARMED"), true)
 						TaskPlayAnim(ped, "reaction@intimidation@cop@unarmed", "intro", 8.0, 2.0, -1, 50, 2.0, 0, 0, 0 )
 					end
-					if IsEntityPlayingAnim(GetPlayerPed(PlayerId()), "reaction@intimidation@cop@unarmed", "intro", 3) then 
+					if IsEntityPlayingAnim(GetPlayerPed(PlayerId()), "reaction@intimidation@cop@unarmed", "intro", 3) then
 						DisableActions(ped)
-					end	
+					end
 				end
-			end 
-		end 
+			end
+		end
 	end
 end )
 
 -- HOLSTER/UNHOLSTER PISTOL --
- 
- Citizen.CreateThread(function()
-	while true do
-		Citizen.Wait(0)
-		local ped = PlayerPedId()
-		if DoesEntityExist( ped ) and not IsEntityDead( ped ) and not IsPedInAnyVehicle(PlayerPedId(), true) and CheckSkin(ped) then
-			loadAnimDict( "rcmjosh4" )
-			loadAnimDict( "weapons@pistol@" )
-			if CheckWeapon(ped) then
-				if holstered then
-					TaskPlayAnim(ped, "rcmjosh4", "josh_leadout_cop2", 8.0, 2.0, -1, 48, 10, 0, 0, 0 )
-					Citizen.Wait(600)
-					ClearPedTasks(ped)
-					holstered = false
-				end
-				SetPedComponentVariation(ped, 9, 0, 0, 0)
-			elseif not CheckWeapon(ped) then
-				if not holstered then
-					TaskPlayAnim(ped, "weapons@pistol@", "aim_2_holster", 8.0, 2.0, -1, 48, 10, 0, 0, 0 )
-					Citizen.Wait(500)
-					ClearPedTasks(ped)
-					holstered = true
-				end
-				SetPedComponentVariation(ped, 9, 1, 0, 0)
-			end
-		end
-	end
+
+Citizen.CreateThread(function()
+  while true do
+  Citizen.Wait(0)
+  local ped = PlayerPedId()
+  if DoesEntityExist(ped) and not IsEntityDead(ped) and not IsPedInAnyVehicle(PlayerPedId(), true) and CheckSkin(ped) then
+    loadAnimDict( "rcmjosh4" )
+    loadAnimDict( "weapons@pistol@" )
+    if CheckWeapon(ped) then
+      if holstered then
+        TaskPlayAnim(ped, "rcmjosh4", "josh_leadout_cop2", 8.0, 2.0, - 1, 48, 10, 0, 0, 0 )
+        Citizen.Wait(600)
+        ClearPedTasks(ped)
+        holstered = false
+      end
+      -- UNHOLSTER
+      for i, drawableInfo in ipairs(eupHolsterDrawables) do
+        local drawableComponent = drawableInfo[1]
+        local drawableHolstered = drawableInfo[2]
+        local drawableUnholstered = drawableInfo[3]
+        if GetPedDrawableVariation(ped, drawableComponent) == drawableHolstered then
+          SetPedComponentVariation(ped, drawableComponent, drawableUnholstered, 0, 0)
+        end
+      end
+    elseif not CheckWeapon(ped) then
+      if not holstered then
+        TaskPlayAnim(ped, "weapons@pistol@", "aim_2_holster", 8.0, 2.0, - 1, 48, 10, 0, 0, 0 )
+        Citizen.Wait(500)
+        ClearPedTasks(ped)
+        holstered = true
+      end
+      -- HOLSTER
+      for i, drawableInfo in ipairs(eupHolsterDrawables) do
+        local drawableComponent = drawableInfo[1]
+        local drawableHolstered = drawableInfo[2]
+        local drawableUnholstered = drawableInfo[3]
+        if GetPedDrawableVariation(ped, drawableComponent) == drawableUnholstered then
+          SetPedComponentVariation(ped, drawableComponent, drawableHolstered, 0, 0)
+        end
+      end
+    end
+  end
+  end
 end)
 
 -- DO NOT REMOVE THESE! --
@@ -124,6 +152,11 @@ end)
 function CheckSkin(ped)
 	for i = 1, #skins do
 		if GetHashKey(skins[i]) == GetEntityModel(ped) then
+			return true
+		end
+	end
+	for i = 1, #freemodeSkins do
+		if GetHashKey(freemodeSkins[i]) == GetEntityModel(ped) then
 			return true
 		end
 	end

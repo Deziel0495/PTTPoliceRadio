@@ -25,5 +25,3 @@ Download, Use and Edit the Script.
 <br>
 ### You are not allowed to:
 Copy, re-release, re-distribute it without my written permission.
-<br><br>
-###### Join my Discord: http://discord.me/deziel0495
